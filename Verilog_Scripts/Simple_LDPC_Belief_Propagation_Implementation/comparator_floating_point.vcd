@@ -1,0 +1,101 @@
+$date
+	Thu Feb  9 19:54:03 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module comparator_floating_point_tb $end
+$var wire 1 ! l $end
+$var reg 32 " in1 [31:0] $end
+$var reg 32 # in2 [31:0] $end
+$scope module DUT $end
+$var wire 32 $ in1 [31:0] $end
+$var wire 32 % in2 [31:0] $end
+$var wire 1 ! l $end
+$var wire 1 & t0 $end
+$var wire 1 ' t1 $end
+$var wire 1 ( mantissa_l $end
+$var wire 1 ) exponent_l $end
+$var wire 1 * exponent_g $end
+$scope module COMPARE_EXPONENTS $end
+$var wire 8 + in1 [7:0] $end
+$var wire 8 , in2 [7:0] $end
+$var wire 1 ) l $end
+$var wire 1 * g $end
+$upscope $end
+$scope module COMPARE_MANTISSAS $end
+$var wire 23 - in1 [22:0] $end
+$var wire 23 . in2 [22:0] $end
+$var wire 1 ( l $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b110011001100110011010 .
+b110011001100110011001 -
+b1111111 ,
+b1111101 +
+0*
+1)
+1(
+1'
+1&
+b111111100110011001100110011010 %
+b111110100110011001100110011001 $
+b111111100110011001100110011010 #
+b111110100110011001100110011001 "
+1!
+$end
+#5000
+0!
+0&
+0'
+b110011001100110011001 .
+1*
+b1111101 ,
+0(
+b110011001100110011010 -
+0)
+b1111111 +
+b111110100110011001100110011001 #
+b111110100110011001100110011001 %
+b111111100110011001100110011010 "
+b111111100110011001100110011010 $
+#10000
+1'
+1!
+1&
+1(
+b10010000000000000000000 .
+1)
+0*
+b10000101 ,
+b1000010110010000000000000000000 #
+b1000010110010000000000000000000 %
+#15000
+0!
+0&
+0'
+b110011001100110011010 .
+1*
+b1111111 ,
+0(
+b10010000000000000000000 -
+0)
+b10000101 +
+b111111100110011001100110011010 #
+b111111100110011001100110011010 %
+b1000010110010000000000000000000 "
+b1000010110010000000000000000000 $
+#20000
+1&
+b10010000000000000000000 .
+0*
+b10000101 ,
+b1000010110010000000000000000000 #
+b1000010110010000000000000000000 %

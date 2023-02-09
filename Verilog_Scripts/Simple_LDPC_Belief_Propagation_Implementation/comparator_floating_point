@@ -1,0 +1,94 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x55e9203f7cf0 .scope module, "comparator_floating_point_tb" "comparator_floating_point_tb" 2 3;
+ .timescale -9 -12;
+v0x55e92044b6f0_0 .var "in1", 31 0;
+v0x55e92044b7e0_0 .var "in2", 31 0;
+v0x55e92044b8b0_0 .net "l", 0 0, L_0x55e92044c200;  1 drivers
+S_0x55e9203f7e80 .scope module, "DUT" "comparator_floating_point" 2 7, 3 3 0, S_0x55e9203f7cf0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "l";
+    .port_info 1 /INPUT 32 "in1";
+    .port_info 2 /INPUT 32 "in2";
+L_0x55e92041f8e0 .functor NOT 1, L_0x55e92044be40, C4<0>, C4<0>, C4<0>;
+L_0x55e92044c140 .functor AND 1, L_0x55e92044b9b0, L_0x55e92041f8e0, C4<1>, C4<1>;
+L_0x55e92044c200 .functor OR 1, L_0x55e92044bd50, L_0x55e92044c140, C4<0>, C4<0>;
+v0x55e92044b090_0 .net "exponent_g", 0 0, L_0x55e92044be40;  1 drivers
+v0x55e92044b130_0 .net "exponent_l", 0 0, L_0x55e92044bd50;  1 drivers
+v0x55e92044b1d0_0 .net "in1", 31 0, v0x55e92044b6f0_0;  1 drivers
+v0x55e92044b2a0_0 .net "in2", 31 0, v0x55e92044b7e0_0;  1 drivers
+v0x55e92044b360_0 .net "l", 0 0, L_0x55e92044c200;  alias, 1 drivers
+v0x55e92044b470_0 .net "mantissa_l", 0 0, L_0x55e92044b9b0;  1 drivers
+v0x55e92044b510_0 .net "t0", 0 0, L_0x55e92041f8e0;  1 drivers
+v0x55e92044b5b0_0 .net "t1", 0 0, L_0x55e92044c140;  1 drivers
+L_0x55e92044bad0 .part v0x55e92044b6f0_0, 0, 23;
+L_0x55e92044bc10 .part v0x55e92044b7e0_0, 0, 23;
+L_0x55e92044bfd0 .part v0x55e92044b6f0_0, 23, 8;
+L_0x55e92044c070 .part v0x55e92044b7e0_0, 23, 8;
+S_0x55e9204327f0 .scope module, "COMPARE_EXPONENTS" "comparator_exponent" 3 12, 4 3 0, S_0x55e9203f7e80;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "l";
+    .port_info 1 /OUTPUT 1 "g";
+    .port_info 2 /INPUT 8 "in1";
+    .port_info 3 /INPUT 8 "in2";
+v0x55e9204329d0_0 .net "g", 0 0, L_0x55e92044be40;  alias, 1 drivers
+v0x55e92044a860_0 .net "in1", 7 0, L_0x55e92044bfd0;  1 drivers
+v0x55e92044a940_0 .net "in2", 7 0, L_0x55e92044c070;  1 drivers
+v0x55e92044aa00_0 .net "l", 0 0, L_0x55e92044bd50;  alias, 1 drivers
+L_0x55e92044bd50 .cmp/gt 8, L_0x55e92044c070, L_0x55e92044bfd0;
+L_0x55e92044be40 .cmp/gt 8, L_0x55e92044bfd0, L_0x55e92044c070;
+S_0x55e92044ab40 .scope module, "COMPARE_MANTISSAS" "comparator_mantissa" 3 11, 5 3 0, S_0x55e9203f7e80;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "l";
+    .port_info 1 /INPUT 23 "in1";
+    .port_info 2 /INPUT 23 "in2";
+v0x55e92044ad90_0 .net "in1", 22 0, L_0x55e92044bad0;  1 drivers
+v0x55e92044ae90_0 .net "in2", 22 0, L_0x55e92044bc10;  1 drivers
+v0x55e92044af70_0 .net "l", 0 0, L_0x55e92044b9b0;  alias, 1 drivers
+L_0x55e92044b9b0 .cmp/gt 23, L_0x55e92044bc10, L_0x55e92044bad0;
+    .scope S_0x55e9203f7cf0;
+T_0 ;
+    %vpi_call 2 10 "$dumpfile", "comparator_floating_point.vcd" {0 0 0};
+    %vpi_call 2 11 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55e9203f7cf0 {0 0 0};
+    %vpi_call 2 12 "$monitor", "in1 = %32b, in2 = %32b, l = %b", v0x55e92044b6f0_0, v0x55e92044b7e0_0, v0x55e92044b8b0_0 {0 0 0};
+    %pushi/vec4 1050253721, 0, 32;
+    %store/vec4 v0x55e92044b6f0_0, 0, 32;
+    %pushi/vec4 1067030938, 0, 32;
+    %store/vec4 v0x55e92044b7e0_0, 0, 32;
+    %delay 5000, 0;
+    %pushi/vec4 1067030938, 0, 32;
+    %store/vec4 v0x55e92044b6f0_0, 0, 32;
+    %pushi/vec4 1050253721, 0, 32;
+    %store/vec4 v0x55e92044b7e0_0, 0, 32;
+    %delay 5000, 0;
+    %pushi/vec4 1067030938, 0, 32;
+    %store/vec4 v0x55e92044b6f0_0, 0, 32;
+    %pushi/vec4 1120403456, 0, 32;
+    %store/vec4 v0x55e92044b7e0_0, 0, 32;
+    %delay 5000, 0;
+    %pushi/vec4 1120403456, 0, 32;
+    %store/vec4 v0x55e92044b6f0_0, 0, 32;
+    %pushi/vec4 1067030938, 0, 32;
+    %store/vec4 v0x55e92044b7e0_0, 0, 32;
+    %delay 5000, 0;
+    %pushi/vec4 1120403456, 0, 32;
+    %store/vec4 v0x55e92044b6f0_0, 0, 32;
+    %pushi/vec4 1120403456, 0, 32;
+    %store/vec4 v0x55e92044b7e0_0, 0, 32;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "comparator_floating_point_test_bench.v";
+    "comparator_floating_point.v";
+    "comparator_exponent.v";
+    "comparator_mantissa.v";
