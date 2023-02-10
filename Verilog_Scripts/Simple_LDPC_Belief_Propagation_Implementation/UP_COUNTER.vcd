@@ -1,0 +1,122 @@
+$date
+	Fri Feb 10 12:19:51 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module UP_COUNTER_TEST_BENCH $end
+$var wire 2 ! count [1:0] $end
+$var reg 1 " clk $end
+$var reg 1 # condition_check $end
+$var reg 2 $ min_index [1:0] $end
+$var reg 1 % reset $end
+$scope module DUT $end
+$var wire 1 " clk $end
+$var wire 1 # condition_check $end
+$var wire 2 & min_index [1:0] $end
+$var wire 1 % reset $end
+$var wire 1 ' reset_check $end
+$var reg 2 ( count [1:0] $end
+$var reg 2 ) counter_input [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx )
+bx (
+x'
+bx &
+x%
+bx $
+x#
+0"
+bx !
+$end
+#2000
+b1 )
+b0 !
+b0 (
+0'
+b11 $
+b11 &
+1#
+1%
+#5000
+1"
+#7000
+0%
+#10000
+0"
+#15000
+b10 )
+b1 !
+b1 (
+1"
+#20000
+0"
+#25000
+b0 )
+b10 !
+b10 (
+1"
+#30000
+0"
+#35000
+b1 )
+b0 !
+b0 (
+1"
+#40000
+0"
+#45000
+b10 )
+b1 !
+b1 (
+1"
+#50000
+0"
+#55000
+b0 )
+b10 !
+b10 (
+1"
+#60000
+0"
+#65000
+b1 )
+b0 !
+b0 (
+1"
+#70000
+0"
+#75000
+b10 )
+b1 !
+b1 (
+1"
+#80000
+0"
+#85000
+b0 )
+b10 !
+b10 (
+1"
+#90000
+0"
+#95000
+b1 )
+b0 !
+b0 (
+1"
+#100000
+0"
+#105000
+b10 )
+b1 !
+b1 (
+1"
+#107000
