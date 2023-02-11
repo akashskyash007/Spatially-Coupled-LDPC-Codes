@@ -1,0 +1,22 @@
+//Test Bench for Floating Point Adder
+
+`timescale 1ns/1ps
+
+module FLOATING_POINT_ADDER_TEST_BENCH;
+	reg[31:0] in1, in2;
+	wire[31:0] out;
+
+	FLOATING_POINT_ADDER_DATA_PATH DUT(in1, in2, out);
+
+	initial begin
+		$dumpfile("FLOATING_POINT_ADDER_DATA_PATH.vcd");
+		$dumpvars(0, FLOATING_POINT_ADDER_TEST_BENCH);
+		$monitor("%32b", DUT.out);
+		//in1 = 32'b00111111100110011001100110011001;
+		//in2 = 32'b00111110010011001100110011001100;
+		//in1 = 32'b10111111100110011001100110011001;
+		//in2 = 32'b00111110110011001100110011001100;
+		in1 = 32'b00111111110000000000000000000000;                //in1 = 1.5
+		in2 = 32'b10111111110000000000000000000000;		   //in2 = -1.5
+	end
+endmodule

@@ -1,0 +1,217 @@
+$date
+	Sun Feb 12 02:02:13 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module FLOATING_POINT_ADDER_TEST_BENCH $end
+$var wire 32 ! out [31:0] $end
+$var reg 32 " in1 [31:0] $end
+$var reg 32 # in2 [31:0] $end
+$scope module DUT $end
+$var wire 32 $ in1 [31:0] $end
+$var wire 32 % in2 [31:0] $end
+$var wire 1 & sign_of_smaller_exponent $end
+$var wire 1 ' sign_of_larger_exponent $end
+$var wire 24 ( positive_shifted_mantissa [23:0] $end
+$var wire 8 ) positive_shifted_exponent [7:0] $end
+$var wire 32 * out [31:0] $end
+$var wire 24 + negative_shifted_mantissa [23:0] $end
+$var wire 8 , negative_shifted_exponent [7:0] $end
+$var wire 5 - negative_exponent_shift [4:0] $end
+$var wire 23 . mantissa_with_smaller_exponent [22:0] $end
+$var wire 23 / mantissa_with_larger_exponent [22:0] $end
+$var wire 24 0 mantissa_sum [23:0] $end
+$var wire 23 1 mantissa2 [22:0] $end
+$var wire 23 2 mantissa1 [22:0] $end
+$var wire 8 3 larger_exponent [7:0] $end
+$var wire 1 4 l $end
+$var wire 1 5 is_result_zero $end
+$var wire 24 6 input_mantissa_2 [23:0] $end
+$var wire 24 7 input_mantissa_1 [23:0] $end
+$var wire 24 8 final_mantissa [23:0] $end
+$var wire 8 9 final_exponent [7:0] $end
+$var wire 8 : exponent2 [7:0] $end
+$var wire 8 ; exponent1 [7:0] $end
+$var wire 8 < diff [7:0] $end
+$var wire 1 = carry_out $end
+$scope module find_number_of_leading_zeros_in_mantissa_sum $end
+$var wire 5 > priority_encoder_output [4:0] $end
+$var wire 24 ? in [23:0] $end
+$var wire 1 5 all_zeros $end
+$var reg 5 @ out [4:0] $end
+$var reg 5 A storage_register [4:0] $end
+$scope module find_position_of_first_1 $end
+$var wire 24 B in [23:0] $end
+$var reg 5 C out [4:0] $end
+$upscope $end
+$upscope $end
+$scope module generate_added_mantissa_and_sign $end
+$var wire 24 D input2_magnitude [23:0] $end
+$var wire 1 E is_subtraction $end
+$var wire 24 F result_magnitude_without_carry [23:0] $end
+$var wire 1 ' input2_sign $end
+$var wire 1 & input1_sign $end
+$var wire 24 G input1_magnitude [23:0] $end
+$var wire 1 = carry_out $end
+$var reg 25 H result_magnitude [24:0] $end
+$var reg 1 I result_sign $end
+$upscope $end
+$scope module generate_exponent_difference $end
+$var wire 8 J exp1 [7:0] $end
+$var wire 8 K exp2 [7:0] $end
+$var wire 1 4 l $end
+$var reg 8 L diff [7:0] $end
+$upscope $end
+$scope module generate_final_exponent $end
+$var wire 1 = sel $end
+$var wire 8 M in2 [7:0] $end
+$var wire 8 N in1 [7:0] $end
+$var reg 8 O out [7:0] $end
+$upscope $end
+$scope module generate_final_mantissa $end
+$var wire 1 = sel $end
+$var wire 24 P in2 [23:0] $end
+$var wire 24 Q in1 [23:0] $end
+$var reg 24 R out [23:0] $end
+$upscope $end
+$scope module generate_input_mantissa_1 $end
+$var wire 8 S shift_factor [7:0] $end
+$var wire 24 T out [23:0] $end
+$var wire 23 U in [22:0] $end
+$var wire 24 V before_shift [23:0] $end
+$upscope $end
+$scope module generate_negative_shifted_exponent $end
+$var wire 5 W decr_value [4:0] $end
+$var wire 8 X in [7:0] $end
+$var reg 8 Y out [7:0] $end
+$upscope $end
+$scope module generate_negative_shifted_mantissa $end
+$var wire 24 Z in [23:0] $end
+$var wire 5 [ shift_factor [4:0] $end
+$var reg 24 \ out [23:0] $end
+$upscope $end
+$scope module generate_positive_shifted_exponent $end
+$var wire 8 ] in [7:0] $end
+$var reg 8 ^ out [7:0] $end
+$upscope $end
+$scope module generate_positive_shifted_mantissa $end
+$var wire 24 _ in [23:0] $end
+$var wire 24 ` out [23:0] $end
+$upscope $end
+$scope module select_larger_exponent $end
+$var wire 8 a in1 [7:0] $end
+$var wire 8 b in2 [7:0] $end
+$var wire 1 4 sel $end
+$var reg 8 c out [7:0] $end
+$upscope $end
+$scope module select_mantissa_with_larger_exponent $end
+$var wire 23 d in1 [22:0] $end
+$var wire 23 e in2 [22:0] $end
+$var wire 1 4 sel $end
+$var reg 23 f out [22:0] $end
+$upscope $end
+$scope module select_mantissa_with_smaller_exponent $end
+$var wire 23 g in1 [22:0] $end
+$var wire 23 h in2 [22:0] $end
+$var wire 1 4 sel $end
+$var reg 23 i out [22:0] $end
+$upscope $end
+$scope module select_sign_of_larger_exponent $end
+$var wire 1 j in1 $end
+$var wire 1 k in2 $end
+$var wire 1 4 sel $end
+$var reg 1 ' out $end
+$upscope $end
+$scope module select_sign_of_smaller_exponent $end
+$var wire 1 l in1 $end
+$var wire 1 m in2 $end
+$var wire 1 4 sel $end
+$var reg 1 & out $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0m
+1l
+1k
+0j
+b10000000000000000000000 i
+b10000000000000000000000 h
+b10000000000000000000000 g
+b10000000000000000000000 f
+b10000000000000000000000 e
+b10000000000000000000000 d
+b1111111 c
+b1111111 b
+b1111111 a
+b0 `
+b0 _
+b10000000 ^
+b1111111 ]
+b0 \
+b11000 [
+b0 Z
+b1100111 Y
+b1111111 X
+b11000 W
+b110000000000000000000000 V
+b10000000000000000000000 U
+b110000000000000000000000 T
+b0 S
+b0 R
+b0 Q
+b0 P
+b1100111 O
+b1100111 N
+b10000000 M
+b0 L
+b1111111 K
+b1111111 J
+0I
+b0 H
+b110000000000000000000000 G
+b0 F
+1E
+b110000000000000000000000 D
+b0 C
+b0 B
+b11000 A
+b11000 @
+b0 ?
+b0 >
+0=
+b0 <
+b1111111 ;
+b1111111 :
+b1100111 9
+b0 8
+b110000000000000000000000 7
+b110000000000000000000000 6
+15
+04
+b1111111 3
+b10000000000000000000000 2
+b10000000000000000000000 1
+b0 0
+b10000000000000000000000 /
+b10000000000000000000000 .
+b11000 -
+b1100111 ,
+b0 +
+b110011100000000000000000000000 *
+b10000000 )
+b0 (
+0'
+1&
+b10111111110000000000000000000000 %
+b111111110000000000000000000000 $
+b10111111110000000000000000000000 #
+b111111110000000000000000000000 "
+b110011100000000000000000000000 !
+$end

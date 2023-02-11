@@ -148,13 +148,13 @@ void generate_spfp_representation(float input) {
 	fill_exponent_part(result, biased_exponent);
 	fill_mantissa_part(result, integer_part_binary_representation, fractional_part_binary_array);
 	for (int i = 0; i < 32; i++) {
-		printf("%d ", result[i]);
+		printf("%d", result[i]);
 	}
 	printf("\n");
 }
 
 int main(void) {
-	float input = 0.3;
+	float input = 1.5;
 	generate_spfp_representation(input);
 	return 0;
 }
