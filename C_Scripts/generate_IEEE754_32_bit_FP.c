@@ -154,7 +154,7 @@ void generate_spfp_representation(float input) {
 }
 
 int main(void) {
-	float input = 7.9;
+	float input = 0.9;
 	generate_spfp_representation(input);
 	return 0;
 }
