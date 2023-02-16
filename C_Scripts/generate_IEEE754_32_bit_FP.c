@@ -154,7 +154,10 @@ void generate_spfp_representation(float input) {
 }
 
 int main(void) {
-	float input = 0.9;
-	generate_spfp_representation(input);
+	float inputs[] = {1.43, -0.31, 0.54, -0.23, -0.47, 0.85};
+	int num_inputs = sizeof(inputs)/sizeof(float);
+	for (int i = 0; i < num_inputs; i++) {
+		generate_spfp_representation(inputs[i]);
+	}
 	return 0;
 }

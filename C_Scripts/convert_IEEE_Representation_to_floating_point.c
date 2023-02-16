@@ -77,7 +77,7 @@ float convert_representation_to_number(int* floating_point_representation) {
 }
 
 int main(void) {
-	char floating_point_representation_str[] = "00111111001100110011001100110010";
+	char floating_point_representation_str[] = "00111110100111101011100001010010";
 	int floating_point_representation[32];
 	for (int i = 0; i < 32; i++) {
 		floating_point_representation[i] = floating_point_representation_str[i] - 48;

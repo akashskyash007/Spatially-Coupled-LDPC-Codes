@@ -2,9 +2,10 @@
 
 `timescale 1ns/1ps
 
-module COLUMN_SUM_CALCULATOR_CONTROL_PATH(clk, done, start, clr, done_iterations);
+module COLUMN_SUM_CALCULATOR_CONTROL_PATH(clk, done, start, clr, done_iterations, load_sum);
 	input clk, start, done_iterations;
 	output reg done, clr;
+	output reg load_sum;
 
 	parameter S0 = 0, S1 = 1, S2 = 2, S3 = 3;
 
@@ -24,6 +25,7 @@ module COLUMN_SUM_CALCULATOR_CONTROL_PATH(clk, done, start, clr, done_iterations
 			S1: begin
 				#2 next_state = S2;
 				clr = 1'b0;
+				load_sum = 1'b1;
 			end
 			S2: begin
 				#2 if (done_iterations) begin
@@ -34,10 +36,12 @@ module COLUMN_SUM_CALCULATOR_CONTROL_PATH(clk, done, start, clr, done_iterations
 			S3: begin
 				#2 next_state = S0;
 				done = 1'b0; clr = 1'b0;
+				load_sum = 1'b0;
 			end
 			default: begin
 				#2 next_state = S0;
 				clr = 1'b0; done = 1'b0;
+				load_sum = 1'b0;
 			end
 		endcase
 	end

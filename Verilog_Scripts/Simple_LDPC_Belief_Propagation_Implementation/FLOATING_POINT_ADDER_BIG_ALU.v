@@ -38,6 +38,6 @@ module FLOATING_POINT_ADDER_BIG_ALU(carry_out, result_magnitude_without_carry, r
 			else
 				result_sign = 1;
 		else
-			result_sign = 0;
+			result_sign = 1;
 	end
 endmodule

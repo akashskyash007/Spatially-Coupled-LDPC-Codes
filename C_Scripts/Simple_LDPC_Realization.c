@@ -87,7 +87,7 @@ void decode(int H[num_rows][num_columns], float* received_vector, float* decoded
 			for (int j = 0; j < num_columns; j++) {
 				if (H[i][j] != 0) {
 					float current_magnitude;
-					if (storage_matrix[i][j] == min1) {
+					if (absolute(storage_matrix[i][j]) == min1) {
 						current_magnitude = min2;
 					}
 					else {
@@ -172,7 +172,7 @@ int main(void) {
 			}
 		}
 		printf("Loaded Parity Matrix:\n");
-		int information_vector[] = {0, 0, 1};
+		int information_vector[] = {1, 0, 1};
 		int encoded_vector[num_columns];
 		encode(H, information_vector, encoded_vector);
 		printf("Information Vector: ");
@@ -186,7 +186,7 @@ int main(void) {
 			printf("%d ", encoded_vector[i]);
 		}
 		printf("\n");
-		float received_vector[] = {0.6, 0.7, 0.7, -0.6, -0.8, 0.9};
+		float received_vector[] = {1.43, -0.31, 0.54, -0.23, -0.47, 0.85};
 		float decoded_vector[num_columns];
 		decode(H, received_vector, decoded_vector, 10);
 	}

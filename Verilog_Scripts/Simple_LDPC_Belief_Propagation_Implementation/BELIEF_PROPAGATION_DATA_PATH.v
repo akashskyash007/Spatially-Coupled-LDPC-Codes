@@ -64,18 +64,18 @@ module BELIEF_PROPAGATION_DATA_PATH(clk, start_row_processing, start_column_proc
 	minimum_second_minimum_calculator_data_path data_path_row3_processor(clk, done_iterations_row_3, initialize_min_row_3, initialize_second_min_row_3, reset_count_row_3, calculating_second_min_row_3, parity_check_matrix[2][2], parity_check_matrix[2][3], parity_check_matrix[2][4], min_row_3, second_min_row_3, pos_row_3, load_first_min_row_3, load_second_min_row_3);
         minimum_second_minimum_calculator_control_path control_path_row_3_processor(clk, start_row_processing, done_row_processing_row_3, done_iterations_row_3, initialize_min_row_3, initialize_second_min_row_3, reset_count_row_3, calculating_second_min_row_3, load_first_min_row_3, load_second_min_row_3);
 
-	COLUMN_SUM_CALCULATOR_DATA_PATH data_path_column1_processor(clk, clr_column_1, done_iterations_column_1, sum_column_1, parity_check_matrix[0][0], parity_check_matrix[1][0], received_vector[32*6-1:32*5]);
-	COLUMN_SUM_CALCULATOR_CONTROL_PATH control_path_column1_processor(clk, done_column_processing_column_1, start_column_processing, clr_column_1, done_iterations_column_1);
-        COLUMN_SUM_CALCULATOR_DATA_PATH data_path_column2_processor(clk, clr_column_2, done_iterations_column_2, sum_column_2, parity_check_matrix[0][1], parity_check_matrix[1][1], received_vector[32*5-1:32*4]);
-        COLUMN_SUM_CALCULATOR_CONTROL_PATH control_path_column2_processor(clk, done_column_processing_column_2, start_column_processing, clr_column_2, done_iterations_column_2);
-        COLUMN_SUM_CALCULATOR_DATA_PATH data_path_column3_processor(clk, clr_column_3, done_iterations_column_3, sum_column_3, parity_check_matrix[0][2], received_vector[32*4-1:32*3], parity_check_matrix[2][2]);
-        COLUMN_SUM_CALCULATOR_CONTROL_PATH control_path_column3_processor(clk, done_column_processing_column_3, start_column_processing, clr_column_3, done_iterations_column_3);
-        COLUMN_SUM_CALCULATOR_DATA_PATH data_path_column4_processor(clk, clr_column_4, done_iterations_column_4, sum_column_4, received_vector[32*3-1:32*2], parity_check_matrix[1][3], parity_check_matrix[2][3]);
-        COLUMN_SUM_CALCULATOR_CONTROL_PATH control_path_column4_processor(clk, done_column_processing_column_4, start_column_processing, clr_column_4, done_iterations_column_4);
-        COLUMN_SUM_CALCULATOR_DATA_PATH data_path_column5_processor(clk, clr_column_5, done_iterations_column_5, sum_column_5, parity_check_matrix[0][4], received_vector[32*2-1:32], parity_check_matrix[2][4]);
-        COLUMN_SUM_CALCULATOR_CONTROL_PATH control_path_column5_processor(clk, done_column_processing_column_5, start_column_processing, clr_column_5, done_iterations_column_5);
-        COLUMN_SUM_CALCULATOR_DATA_PATH data_path_column6_processor(clk, clr_column_6, done_iterations_column_6, sum_column_6, parity_check_matrix[0][5], parity_check_matrix[1][5], received_vector[31:0]);
-        COLUMN_SUM_CALCULATOR_CONTROL_PATH control_path_column6_processor(clk, done_column_processing_column_6, start_column_processing, clr_column_6, done_iterations_column_6);
+	COLUMN_SUM_CALCULATOR_DATA_PATH data_path_column1_processor(clk, clr_column_1, done_iterations_column_1, sum_column_1, parity_check_matrix[0][0], parity_check_matrix[1][0], received_vector[32*6-1:32*5], load_sum);
+	COLUMN_SUM_CALCULATOR_CONTROL_PATH control_path_column1_processor(clk, done_column_processing_column_1, start_column_processing, clr_column_1, done_iterations_column_1, load_sum);
+        COLUMN_SUM_CALCULATOR_DATA_PATH data_path_column2_processor(clk, clr_column_2, done_iterations_column_2, sum_column_2, parity_check_matrix[0][1], parity_check_matrix[1][1], received_vector[32*5-1:32*4], load_sum);
+        COLUMN_SUM_CALCULATOR_CONTROL_PATH control_path_column2_processor(clk, done_column_processing_column_2, start_column_processing, clr_column_2, done_iterations_column_2, load_sum);
+        COLUMN_SUM_CALCULATOR_DATA_PATH data_path_column3_processor(clk, clr_column_3, done_iterations_column_3, sum_column_3, parity_check_matrix[0][2], received_vector[32*4-1:32*3], parity_check_matrix[2][2], load_sum);
+        COLUMN_SUM_CALCULATOR_CONTROL_PATH control_path_column3_processor(clk, done_column_processing_column_3, start_column_processing, clr_column_3, done_iterations_column_3, load_sum);
+        COLUMN_SUM_CALCULATOR_DATA_PATH data_path_column4_processor(clk, clr_column_4, done_iterations_column_4, sum_column_4, received_vector[32*3-1:32*2], parity_check_matrix[1][3], parity_check_matrix[2][3], load_sum);
+        COLUMN_SUM_CALCULATOR_CONTROL_PATH control_path_column4_processor(clk, done_column_processing_column_4, start_column_processing, clr_column_4, done_iterations_column_4, load_sum);
+        COLUMN_SUM_CALCULATOR_DATA_PATH data_path_column5_processor(clk, clr_column_5, done_iterations_column_5, sum_column_5, parity_check_matrix[0][4], received_vector[32*2-1:32], parity_check_matrix[2][4], load_sum);
+        COLUMN_SUM_CALCULATOR_CONTROL_PATH control_path_column5_processor(clk, done_column_processing_column_5, start_column_processing, clr_column_5, done_iterations_column_5, load_sum);
+        COLUMN_SUM_CALCULATOR_DATA_PATH data_path_column6_processor(clk, clr_column_6, done_iterations_column_6, sum_column_6, parity_check_matrix[0][5], parity_check_matrix[1][5], received_vector[31:0], load_sum);
+        COLUMN_SUM_CALCULATOR_CONTROL_PATH control_path_column6_processor(clk, done_column_processing_column_6, start_column_processing, clr_column_6, done_iterations_column_6, load_sum);
 
 	FLOATING_POINT_ADDER_DATA_PATH generate_column_updated_00(sum_column_1, sign_inverted_00, column_updated_00);
 	FLOATING_POINT_ADDER_DATA_PATH generate_column_updated_04(sum_column_5, sign_inverted_04, column_updated_04);
