@@ -62,16 +62,18 @@ void decode(int H[num_rows][num_columns], float* received_vector, float* decoded
 		for (int i = 0; i < num_rows; i++) {
 			float min1 = INT_MAX;
 			float min2 = INT_MAX;
+			int min_pos = -1;
 			for (int j = 0; j < num_columns; j++) {
 				if (H[i][j] == 0) {
 					continue;
 				}
 				if (absolute(storage_matrix[i][j]) < min1) {
 					min1 = absolute(storage_matrix[i][j]);
+					min_pos = j;
 				}
 			}
 			for (int j = 0; j < num_columns; j++) {
-				if (absolute(storage_matrix[i][j]) == min1 || H[i][j] == 0) {
+				if (min_pos == j || H[i][j] == 0) {
 					continue;
 				}
 				if (absolute(storage_matrix[i][j]) < min2) {
@@ -186,7 +188,7 @@ int main(void) {
 			printf("%d ", encoded_vector[i]);
 		}
 		printf("\n");
-		float received_vector[] = {1.43, -0.31, 0.54, -0.23, -0.47, 0.85};
+		float received_vector[] = {1.43, 0.1, 0.54, 0.23, 0.03, 0.85};
 		float decoded_vector[num_columns];
 		decode(H, received_vector, decoded_vector, 10);
 	}
