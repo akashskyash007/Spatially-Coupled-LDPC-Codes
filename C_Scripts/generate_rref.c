@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static int k = 4;
-static int n = 7;
+static int k = 0;
+static int n = 32;
 
 void row_reducer(int H[n - k][n]) {
 	for (int curr_row = 0; curr_row < n - k; curr_row++) {
@@ -33,14 +33,17 @@ int main(void) {
 	int num_parity_bits = n - k;
 	int H[num_parity_bits][n];
 	FILE* fptr;
-	fptr = fopen("parity_check_matrix.txt", "r");
+	fptr = fopen("D_Matrix.txt", "r");
 	for (int i = 0; i < n - k; i++) {
 		for (int j = 0; j < n; j++) {
 			char ch = fgetc(fptr);
 			H[i][j] = ch - 48;
 			ch = fgetc(fptr);
 		}
+		char ch = fgetc(fptr);
 	}
+	fclose(fptr);
+	/*
 	printf("Original Matrix:\n");
 	for (int i = 0; i < n - k; i++) {
 		for (int j = 0; j < n; j++) {
@@ -48,13 +51,17 @@ int main(void) {
 		}
 		printf("\n");
 	}
+	*/
 	row_reducer(H);
-	printf("Row Reduced Matrix:\n");
+	//printf("Row Reduced Matrix:\n");
+	fptr = fopen("D_Matrix_Row_Reduced_Form.txt", "w");
 	for (int i = 0; i < n - k; i++) {
 		for (int j = 0; j < n; j++) {
-			printf("%d ", H[i][j]);
+			fprintf(fptr, "%d ", H[i][j]);
 		}
-		printf("\n");
+		fprintf(fptr, "\n");
 	}
+	fclose(fptr);
+	system("vim D_Matrix_Row_Reduced_Form.txt");
 	return 0;
 }
