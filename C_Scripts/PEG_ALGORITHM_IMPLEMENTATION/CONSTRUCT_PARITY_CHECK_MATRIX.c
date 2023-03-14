@@ -150,11 +150,6 @@ void construct_parity_check_matrix(int J, int K, int EXPANSION_FACTOR) {
 						}
 					}
 					sort_check_nodes_by_degree(candidate_check_nodes, candidate_check_node_degrees, num_unused_check_nodes);
-					printf("Candidate Check Nodes: ");
-					for (int k = 0; k < num_unused_check_nodes; k++) {
-						printf("%d ", candidate_check_nodes[k]);
-					}
-					printf("\n");
 					if (candidate_check_node_degrees[0] >= K && check_node_position_for_first_iteration < EXPANSION_FACTOR) {
 						j = -1;
 						for (int k = 0; k < num_rows; k++) {
@@ -178,23 +173,25 @@ void construct_parity_check_matrix(int J, int K, int EXPANSION_FACTOR) {
 					}
 				}
 			}
-			printf("Parity Check Matrix:\n");
-			for (int k = 0; k < num_rows; k++) {
-				for (int l = 0; l < num_columns; l++) {
-					printf("%d ", H[k][l]);
-				}
-				printf("\n");
-			}
-			printf("\n");
 		}
 	}
+	FILE* fptr;
+	fptr = fopen("generated_H_matrix.txt", "w");
+	for (int i = 0; i < num_rows; i++) {
+		for (int j = 0; j < num_columns; j++) {
+			fprintf(fptr, "%d ", H[i][j]);
+		}
+		fprintf(fptr, "\n");
+	}
+	fclose(fptr);
 }
 
 //Main Function that defines the code parameters
 int main(void) {
-	int J = 2; //Number of Block Rows
-	int K = 3; //Number of Block Columns
-	int EXPANSION_FACTOR = 2;     //Expansion Factor
+	int J = 8; //Number of Block Rows
+	int K = 64; //Number of Block Columns
+	int EXPANSION_FACTOR = 56;     //Expansion Factor
 	construct_parity_check_matrix(J, K, EXPANSION_FACTOR);
+	system("vim generated_H_matrix.txt");
 	return 0;
 }
