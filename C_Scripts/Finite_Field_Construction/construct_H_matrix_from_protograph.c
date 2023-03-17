@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define num_rows_in_protograph 88
-#define num_columns_in_protograph 88
+#define num_rows_in_protograph 16
+#define num_columns_in_protograph 40
 #define expansion_factor 88
 #define num_rows num_rows_in_protograph * expansion_factor
 #define num_columns num_columns_in_protograph * expansion_factor
@@ -13,14 +13,20 @@ void construct_parity_check_matrix() {
 	fptr = fopen("BASE_MATRIX.txt", "r");
 	for (int i = 0; i < num_rows_in_protograph; i++) {
 		for (int j = 0; j < num_columns_in_protograph; j++) {
-			char ch = fgetc(fptr);
-			H_protograph[i][j] = ch - 48;
-			ch = fgetc(fptr);
+			int curr_value = 0;
+			int flag = 1;
+			while (flag) {
+				char ch = fgetc(fptr);
+				if (ch < 48 || ch > 57) {
+					break;
+				}
+				curr_value = curr_value * 10 + (ch - 48);
+			}
+			H_protograph[i][j] = curr_value;
 		}
 		char ch = fgetc(fptr);
 	}
-	//int num_rows = num_rows_in_protograph * expansion_factor;
-	//int num_columns = num_columns_in_protograph * expansion_factor;
+	printf("%d\n", H_protograph[4][7]);
 	static int H[num_rows][num_columns];
 	for (int i = 0; i < num_rows_in_protograph; i++) {
 		for (int j = 0; j < num_columns_in_protograph; j++) {

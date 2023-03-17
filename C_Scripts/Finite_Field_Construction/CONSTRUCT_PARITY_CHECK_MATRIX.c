@@ -41,8 +41,8 @@ void construct_H_matrix(int q, int alpha) {
 	}
 	FILE* fptr;
 	fptr = fopen("BASE_MATRIX.txt", "w");
-	for (int i = 0; i < q - 1; i++) {
-		for (int j = 0; j < q - 1; j++) {
+	for (int i = 0; i < 16; i++) {
+		for (int j = 1; j <= 40; j++) {
 			fprintf(fptr, "%d ", B[i][j]);
 		}
 		fprintf(fptr, "\n");

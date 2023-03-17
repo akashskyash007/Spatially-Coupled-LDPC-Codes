@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <limits.h>
 
-#define J 88
-#define K 88
+#define J 16
+#define K 40
 #define EXPANSION_FACTOR 88
 #define num_rows J * EXPANSION_FACTOR
 #define num_columns K * EXPANSION_FACTOR
