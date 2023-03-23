@@ -52,7 +52,7 @@ module QC_LDPC_ENCODER_CONTROL_PATH(clk, clear_7bit_counter, clear_6bit_counter,
 				load_SRAA_shift_reg = 0; clear_7bit_counter = 0;
 			end
 			S5: begin
-				#2 if (counter_6bit_out == 40) begin
+				#2 if (counter_6bit_out == 39) begin
 					NS = S6;
 					done = 1;
 					clear_6bit_counter = 0; clear_7bit_counter = 0; load_SRAA_shift_reg = 0;
