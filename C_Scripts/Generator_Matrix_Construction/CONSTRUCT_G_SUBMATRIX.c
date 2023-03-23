@@ -131,19 +131,7 @@ void find_G_submatrix(int* linearly_dependent_columns) {
                 char ch = fgetc(fptr);
         }
 	fclose(fptr);
-	//Debug Code Starts
-	fptr = fopen("H_MATRIX.txt", "r");
-	static int H[num_rows_in_H][num_columns_in_H];
-	for (int i = 0; i < num_rows_in_H; i++) {
-		for (int j = 0; j < num_columns_in_H; j++) {
-			char ch = fgetc(fptr);
-			H[i][j] = ch - 48;
-			ch = fgetc(fptr);
-		}
-		char ch = fgetc(fptr);
-	}
-	fclose(fptr);
-	//Debug Code Ends
+	fptr = fopen("G_MATRIX_ROWS.txt", "w");
 	for (int i = 0; i < (t - l); i++) {
 		static int rhs[num_elements_in_rhs];
 		int mi_block[c];
@@ -167,15 +155,6 @@ void find_G_submatrix(int* linearly_dependent_columns) {
 			}
 		}
 		perform_gaussian_elimination(rhs);
-		//Debug Code Starts
-		int num_failures = 0;
-		for (int j = 1393; j < 1408; j++) {
-			if (rhs[j] == 1) {
-				num_failures++;
-			}
-		}
-		printf("Number of failures in iteration %d = %d\n", i, num_failures);
-		//Debug Code Ends
 		int zi[l * b];
 		for (int j = 0; j < l * b; j++) {
 			if (check_element_prescence_in_array(linearly_dependent_columns, l * b - r, j)) {
@@ -190,6 +169,10 @@ void find_G_submatrix(int* linearly_dependent_columns) {
 				}
 			}
 		}
+		for (int j = 0; j < l * b; j++) {
+			fprintf(fptr, "%d", zi[j]);
+		}
+		fprintf(fptr, "\n");
 		int gi[t * b];
 		for (int j = 0; j < (t - l) * b; j++) {
 			gi[j] = 0;
@@ -213,6 +196,7 @@ void find_G_submatrix(int* linearly_dependent_columns) {
 			}
 		}
 	}
+	fclose(fptr);
 	fptr = fopen("G_SUBMATRIX.txt", "w");
 	for (int i = 0; i < (t - l) * b; i++) {
 		for (int j = 0; j < t * b; j++) {

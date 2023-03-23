@@ -68,6 +68,7 @@ void construct_Q_submatrix(int* linearly_dependent_columns) {
 	}
 	fclose(fptr);
 	int current_row_in_Q = 0;
+	fptr = fopen("G_MATRIX_ROWS.txt", "a");
 	for (int i = 0; i < l; i++) {
 		int curr_col_index = i * b;
 		int current_Q_block_num_rows = 0;
@@ -103,6 +104,10 @@ void construct_Q_submatrix(int* linearly_dependent_columns) {
 					}
 				}
 			}
+			for (int j = 0; j < l * b; j++) {
+				fprintf(fptr, "%d", zi[j]);
+			}
+			fprintf(fptr, "\n");
 			int qi[t * b];
 			for (int j = 0; j < t * b; j++) {
 				if (j < (t - l) * b) {
@@ -127,6 +132,7 @@ void construct_Q_submatrix(int* linearly_dependent_columns) {
 			}
 		}
 	}
+	fclose(fptr);
 	fptr = fopen("Q_SUBMATRIX.txt", "w");
 	for (int i = 0; i < num_rows_in_Q; i++) {
 		for (int j = 0; j < num_columns_in_Q; j++) {
