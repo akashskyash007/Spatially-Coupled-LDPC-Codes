@@ -1,0 +1,3 @@
+iverilog -o minimum_second_minimum_calculator minimum_second_minimum_calculator_data_path.v minimum_second_minimum_calculator_control_path.v minimum_second_minimum_calculator_test_bench.v BUS_MUX_40_1.v BUS_MUX_2_1.v MIN_PIPO_REGISTER.v POS_PIPO_REGISTER.v comparator_floating_point.v comparator_mantissa.v comparator_exponent.v  UP_COUNTER.v;
+vvp minimum_second_minimum_calculator;
+gtkwave minimum_second_minimum_calculator.vcd

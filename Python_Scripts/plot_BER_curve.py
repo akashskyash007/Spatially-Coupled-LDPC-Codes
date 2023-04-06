@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 def read_file():
-    with open("/home/akash/MyFiles/SpatiallyCoupledLDPC/C_Scripts/LAYERED_DECODER_IMPLEMENTATION/BER_RESULTS.txt", "r") as f:
+    with open("/home/akash/MyFiles/SpatiallyCoupledLDPC/C_Scripts/LAYERED_DECODER_IMPLEMENTATION_VERY_SMALL_BLOCK_LENGTHS/BER_RESULTS.txt", "r") as f:
         line = f.read()
         numbers = line.split(" ")
         ber_values = []
